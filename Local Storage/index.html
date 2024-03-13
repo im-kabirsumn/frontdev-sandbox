@@ -6,31 +6,27 @@
     <link href="style.css" rel="stylesheet" />
   </head>
   <body class="container mx-auto">
-    <form action="" class="space-y-6" id="add-item-form">
+    <form action="" class="space-y-6" id="item-input-form">
       <div class="space-y-2 text-base">
-        <label
-          for="username"
-          class="block font-bold text-center text-slate-700"
-        >
+        <label for="item" class="block font-bold text-center text-slate-700">
           Add Item
         </label>
         <input
           type="text"
           name="item"
-          id="input"
+          id="item-input"
           placeholder="Add Item.. "
           class="px-4 py-3 rounded-md border border-indigo-300 focus:outline-none"
         />
       </div>
       <button
         type="submit"
-        id="add"
         class="text-lg py-2 px-5 bg-teal-600 text-white rounded"
       >
         Add
       </button>
     </form>
-    <section id="items"></section>
+    <section id="items-box"></section>
     <script src="/app.js"></script>
   </body>
 </html>
