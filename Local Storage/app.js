@@ -1,26 +1,28 @@
-const addItemForm = document.getElementById('add-item-form');
-const input = document.getElementById("input");
-const itemsElm = document.getElementById("items");
+const itemInput = document.getElementById("item-input");
+const itemInputForm = document.getElementById("item-input-form");
+const itemsBox = document.getElementById("items-box");
 
-const items = JSON.parse(localStorage.getItem("item")) || [];
+const items = JSON.parse(localStorage.getItem("items")) || [];
 
+items.map((item) => {
+  createItems(item);
+});
 
-addItemForm.addEventListener('submit', (e) => {
+console.log(items);
+
+itemInputForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  const inputValue = input.value;
-
-  if (inputValue === "") {
-    return;
-  }
 
   const item = {
     id: new Date().getTime(),
-    item: inputValue
+    name: itemInput.value
+
   };
 
+
   items.push(item);
-  localStorage.setItem('item', JSON.stringify(items));
+  localStorage.setItem("items", JSON.stringify(items));
 
   createItems(item);
 
@@ -28,11 +30,12 @@ addItemForm.addEventListener('submit', (e) => {
 
 
 
-const createItems = (item) => {
-  const itemsMarkup = document.createElement("div");
-  itemsMarkup.innerHTML = `<p>${item.item}</p>`;
-  itemsElm.append(itemsMarkup);
+function createItems(item) {
+  const itemMarkup = document.createElement("div");
+  itemMarkup.innerHTML = `<p>${item.name}</p>`;
+  itemsBox.append(itemMarkup);
 }
+
 
 
 
