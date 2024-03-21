@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .animated-box {
+          @apply before:content-[''] before:absolute before:inset-[-5px] before:bg-gradient-to-r from-sky-500 to-indigo-500 before:z-[-1];
+        }
+        .box:focus ~ span:before {
+          @apply animate-spin;
+        }
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body class="bg-slate-400">
+    <div class="flex flex-col justify-center items-center h-screen">
+      <div class="relative">
+        <form
+          action=""
+          class="mx-auto p-9 text-center w-[350px] bg-transparent space-y-3 z-10"
+        >
+          <h1 class="text-3xl">Add Items</h1>
+          <input
+            type="text"
+            class="box w-[100%] p-3 outline-none rounded-md border-2 border-transparent"
+          />
+          <span class="animated-box"></span>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
